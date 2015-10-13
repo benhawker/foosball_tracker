@@ -2,6 +2,7 @@
   <% @users.each do |user| %> 
     <%= link_to user.user_name, user_path(user) %>
     <%= link_to "Edit #{user.user_name}", edit_user_path(user) %>
+    <%= link_to "Delete #{user.user_name}", user_path(user), method: :delete %>
     <%= user.first_name %> <%= user.last_name %>
   <% end %>
 <% else %>

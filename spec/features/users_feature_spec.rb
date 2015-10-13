@@ -70,4 +70,19 @@ feature 'users' do
 			expect(current_path).to eq '/users'
 		end
 	end
+
+	context 'deleting restaurants' do
+
+	  before { User.create(first_name: 'Ben', 
+				    						last_name: 'Hawker',
+				    						user_name: 'benhawker'
+				    						) }
+
+	  scenario 'removes a user when a user clicks a delete link' do
+	    visit '/users'
+	    click_link 'Delete benhawker'
+	    expect(page).not_to have_content 'Ben Hawker'
+	    expect(page).to have_content 'User deleted successfully'
+	  end
+	end
 end
