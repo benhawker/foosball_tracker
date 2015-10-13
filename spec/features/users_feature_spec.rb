@@ -51,4 +51,23 @@ feature 'users' do
 	   expect(current_path).to eq "/users/#{ben.id}"
 	  end
 	end
+
+	context 'editing restaurants' do
+
+	  before { User.create(first_name: 'Ben', 
+				    						last_name: 'Hawker',
+				    						user_name: 'benhawker'
+				    						) }
+
+	  scenario 'let a user edit a user' do
+			visit '/users'
+			click_link 'Edit benhawker'
+			fill_in 'user[first_name]', with: 'Bob'
+	   	fill_in 'user[last_name]', with: 'Smith'
+	   	fill_in 'user[user_name]', with: 'bobsmith'
+			click_button 'Update user'
+			expect(page).to have_content 'Bob Smith'
+			expect(current_path).to eq '/users'
+		end
+	end
 end

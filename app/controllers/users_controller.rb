@@ -21,6 +21,21 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
  	end
 
+ 	def edit
+ 		@user = User.find(params[:id])
+ 	end
+
+ 	def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = 'User updated successfully'
+      redirect_to '/users'
+    else
+      flash[:alert] = "User could not be updated"
+      render 'edit'
+    end
+  end
+
  	def user_params
     params.require(:user).permit(:first_name, :last_name, :user_name)
   end
