@@ -11,8 +11,8 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.teams << Team.find(params[:match][:team_one])
     @match.teams << Team.find(params[:match][:team_two])
-    # @match.assign_winner
-    # @match.team_wins
+    @match.assign_winner
+    @match.team_wins
     if @match.save
     	flash[:notice] = 'Match created successfully'
     	redirect_to '/matches'

@@ -1,9 +1,9 @@
 <div class="container">
   <h2>Playing History for <%= @team.player_one %>  &  <%= @team.player_two %> </h2>
-  <p>Matches Played: <%=  %></p> 
-  <p>Matches Won: <%=  %></p> 
-  <p>Matches Lost: <%=   %></p> 
-  <p>Win Percentage: </p>           
+  <p>Matches Played: <%= @team.matches.count %></p> 
+  <p>Matches Won: <%= @team.wins %></p> 
+  <p>Matches Lost: <%=  @team.matches.count - @team.wins %></p> 
+  <p>Win Percentage: <%= ((@team.wins.to_f / @team.matches.count) * 100).round(2) %>%</p>            
   <table class="table">
     <thead>
       <tr>
