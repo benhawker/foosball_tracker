@@ -20,4 +20,17 @@ feature 'users' do
 	    expect(page).not_to have_content('No users yet')
 	  end
 	end
+
+	context 'creating users' do
+	  scenario 'prompts user to fill out a form, then displays the new user' do
+	    visit '/users'
+	    click_link 'Add a user'
+	    fill_in 'user[first_name]', with: 'Ben'
+	   	fill_in 'user[last_name]', with: 'Hawker'
+	   	fill_in 'user[user_name]', with: 'benhawker'
+	    click_button 'Create user'
+	    expect(page).to have_content 'Ben'
+	    expect(current_path).to eq '/users'
+	  end
+	end
 end
