@@ -37,7 +37,7 @@ feature 'users' do
 	  end
 	end
 
-	context 'viewing restaurants' do
+	context 'viewing users' do
 
 	  let!(:ben){ User.create(first_name: 'Ben', 
 						    						last_name: 'Hawker',
@@ -52,7 +52,7 @@ feature 'users' do
 	  end
 	end
 
-	context 'editing restaurants' do
+	context 'editing users' do
 
 	  before { User.create(first_name: 'Ben', 
 				    						last_name: 'Hawker',
@@ -61,7 +61,7 @@ feature 'users' do
 
 	  scenario 'let a user edit a user' do
 			visit '/users'
-			click_link 'Edit benhawker'
+			click_link 'Edit'
 			fill_in 'user[first_name]', with: 'Bob'
 	   	fill_in 'user[last_name]', with: 'Smith'
 	   	fill_in 'user[user_name]', with: 'bobsmith'
@@ -71,7 +71,7 @@ feature 'users' do
 		end
 	end
 
-	context 'deleting restaurants' do
+	context 'deleting users' do
 
 	  before { User.create(first_name: 'Ben', 
 				    						last_name: 'Hawker',
@@ -80,7 +80,7 @@ feature 'users' do
 
 	  scenario 'removes a user when a user clicks a delete link' do
 	    visit '/users'
-	    click_link 'Delete benhawker'
+	    click_link 'Delete'
 	    expect(page).not_to have_content 'Ben Hawker'
 	    expect(page).to have_content 'User deleted successfully'
 	  end
