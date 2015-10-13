@@ -11,7 +11,10 @@ feature 'users' do
 
   context 'users have been added' do
 	  before do
-	    User.create(first_name: 'Ben')
+	    User.create(first_name: 'Ben', 
+	    						last_name: 'Hawker',
+	    						user_name: 'benhawker'
+	    						)
 	  end
 
 	  scenario 'display users' do
@@ -31,6 +34,21 @@ feature 'users' do
 	    click_button 'Create user'
 	    expect(page).to have_content 'Ben'
 	    expect(current_path).to eq '/users'
+	  end
+	end
+
+	context 'viewing restaurants' do
+
+	  let!(:ben){ User.create(first_name: 'Ben', 
+						    						last_name: 'Hawker',
+						    						user_name: 'benhawker'
+						    						) }
+
+	  scenario 'lets a user view a user' do
+	   visit '/users'
+	   click_link 'benhawker'
+	   expect(page).to have_content 'Ben Hawker'
+	   expect(current_path).to eq "/users/#{ben.id}"
 	  end
 	end
 end
