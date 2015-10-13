@@ -1,2 +1,9 @@
-No users yet
+<% if @users.any? %>
+  <% @users.each do |user| %>
+    <h2> <%= user.first_name %> </h2>
+  <% end %>
+<% else %>
+  No users yet
+<% end %>
+
 <a href='#'>Add a user</a>
