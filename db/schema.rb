@@ -11,14 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013110834) do
+ActiveRecord::Schema.define(version: 20151013114520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "matches", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "team_one"
+    t.string   "team_two"
+    t.integer  "team_one_score"
+    t.integer  "team_two_score"
+    t.string   "winning_team"
   end
 
   create_table "matches_teams", id: false, force: :cascade do |t|

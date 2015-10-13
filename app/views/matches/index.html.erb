@@ -1,29 +1,35 @@
 <div class="container">
 	<%= link_to "Add new match", new_match_path, class: "btn btn-primary pull-right" %>
 	<section class='space-20'></section>
-	
-	 		<h2 class="text-center">All matches</h2> 
-		  <table class="table">
-		    <thead>
+	<% if @matches.any? %>
+	 	<table class="table">
+  		<h2 class="text-center">Here are the most recent matchups</h2>
+	    <thead>
+	      <tr>
+	      	<th></th>
+	        <th>Matchup</th>
+	        <th>Date</th>
+	        <th>Score</th>
+	        <th>Winner</th>
+	        <th>Options</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
 		      <tr>
-		      	<th>#</th>
-		        <th>Team One</th>
-		        <th>Team Two</th>
-		        <th>Total Wins</th>
-		        <th>Options</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-			      <tr>
-			      	<td><%= "#" %></td>
-			        <td><%= "." %></td>
-			        <td><%= "." %></td>
-			        <td><%= "." %></td>
-			        <td><%= "." %></td>
-			      </tr>
-		    </tbody>
-		  </table>
+		      <% @matches.each do |match| %>
+		        <td><%= link_to "View Match Stats", match_path(match) %> </td>
+			    	<td>*</td>
+				    <td>*</td>
+			    	<td>*</td>
+				    <td>*</td>
+				    <td><%= link_to "Edit Match", edit_match_path(match) %> / <%= link_to "Delete Match", match_path(match), method: :delete %></td>
+				  </tr>
+				<% end %>
+	    </tbody>
+	  </table>
+	<% else %>
+		<p>No matches yet</p>
+	<% end %>
+</div>
 
-			<p>No matches yet.<p>
-
-	</div>
