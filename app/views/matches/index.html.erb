@@ -19,9 +19,24 @@
 		      <tr>
 		      <% @matches.each do |match| %>
 		        <td><%= link_to "View Match Stats", match_path(match) %> </td>
-			    	<td>*</td>
-				    <td>*</td>
-			    	<td>*</td>
+			    	<td>
+			    	<%= match.teams.first.player_one %>
+			    	
+			    	<% if match.teams.first.player_two %> 
+							<%= "& #{match.teams.first.player_two}" %> 
+						<% end %>
+
+						vs.
+						
+			    	<%= match.teams.last.player_one %>
+
+			    	<% if match.teams.last.player_two %> 
+							<%= "& #{match.teams.last.player_two}" %> 
+						<% end %>
+
+			    	</td>
+				    <td><%= match.created_at.strftime("%m/%d/%Y") %></td>
+			    	<td><%= match.team_one_score%> : <%= match.team_two_score %></td>
 				    <td>*</td>
 				    <td><%= link_to "Edit Match", edit_match_path(match) %> / <%= link_to "Delete Match", match_path(match), method: :delete %></td>
 				  </tr>

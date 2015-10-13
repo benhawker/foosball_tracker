@@ -10,4 +10,13 @@ RSpec.describe Team, type: :model do
     expect(team).not_to be_valid
   end
 
+  it 'the team combination must be unique' do
+  	ben = User.create(user_name: "ben")
+  	bob = User.create(user_name: "bob")
+    Team.create(player_one: ben, player_two: bob)
+    team = Team.create(player_one: ben, player_two: bob)
+    expect(team).to have(1).error_on(:player_two)
+    expect(team).not_to be_valid
+  end
+
 end

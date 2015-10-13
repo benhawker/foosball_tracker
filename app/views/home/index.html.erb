@@ -1,4 +1,15 @@
 <div class="container">
 	<section class='space-20'></section>
-	<h2 class="text-center">Current Rankings</h2> 
+	<h2 class="text-center">Welcome!</h2> 
+
+	<div class='row'>
+		<div class="col-lg-4 col-lg-push-4 center-block">
+			<%= link_to "View the leaderboard", ranking_path, class: "btn btn-primary width-200 center-block" %>
+					<%= link_to "Create new user", new_user_path, class: "btn width-200 btn-border center-block" %>
+		<%= link_to "Create new team", new_team_path, class: "btn width-200 btn-border center-block" %>
+		<%= link_to "Create new match", new_match_path, class: "btn width-200 btn-border center-block" %>
+		</div>
+	</div>
+
+
 </div>
