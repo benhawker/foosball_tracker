@@ -1,0 +1,100 @@
+/**********************************************************
+  GLOBALS
+**********************************************************/
+
+p, a, li, h3, h4, h5, h6, input, label {
+  font-weight: 400;
+}
+
+/* Override Chrome autofill form input yellow color */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+input:focus:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.centered {
+  text-align:center;
+}
+
+.space-10 {
+  height: 10px;
+}
+
+.space-20 {
+  height: 20px;
+}
+
+
+/**********************************************************
+  BACKGROUND
+**********************************************************/
+
+html { 
+  background: url(bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+/**********************************************************
+  NAVBAR
+**********************************************************/
+
+/*.navbar {
+	margin-bottom: 0;
+}*/
+
+.navbar-brand {
+  h1 {
+    color: #003366;
+    margin-top: 12px;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: inline;
+  }
+}
+
+
+/**********************************************************
+  JUMBOTRON
+**********************************************************/
+
+.jumbotron {
+	padding: 2% 5% 2% 5%;
+	position: absolute;
+	top: 25%;
+	left:10%;
+	right:10%;
+
+	h2 {
+		margin-top: 10px;
+	}
+
+	.btn {
+		margin-bottom: 10px;
+		width: 40%;
+	}
+}
+
+
+
+
+
+
+/**********************************************************
+  MATCH SHOW PAGE
+**********************************************************/
+
+
+
+
