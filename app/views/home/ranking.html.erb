@@ -1,0 +1,35 @@
+<div class="container">
+<div class="col-sm-8 col-centered">
+	<% if @teams.any? %>
+ 		<h2 class="text-center">Team Rankings</h2> 
+ 		<p class="text-center">Ranked by win % - must have minimum of 5 wins.</p> 
+	  <section class="space-20"></section>
+	  <table class="table">
+	    <thead>
+	      <tr>
+	      	<th>#</th>
+	      	<th> </th>
+	        <th>Player One</th>
+	        <th>Player Two</th>
+	        <th>Total Wins</th>
+	        <th>Win %</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <% @teams.each_with_index do |team, index| %>
+		      <tr>
+		      	<td><%= index + 1 %></td>
+		      	<td><%= link_to "View Team", team_path(team), class: "" %></td>
+		        <td><%= team.player_one %></td>
+		        <td><%= team.player_two %></td>
+		        <td><%= team.wins %></td>
+		        <td> <%= ((team.wins.to_f / team.matches.count) * 100).round(1) %>%</td>
+		      </tr>
+	     	<% end %>
+	    </tbody>
+	  </table>
+	<% else %>
+		<p>No teams yet.<p>
+	<% end %>
+</div>
+</div>

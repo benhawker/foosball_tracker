@@ -4,6 +4,6 @@ class HomeController < ApplicationController
 	end
 
 	def ranking
-		
+		@teams = Team.order(wins: :desc)
 	end
 end

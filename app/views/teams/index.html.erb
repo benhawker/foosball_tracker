@@ -7,6 +7,7 @@
 		    <thead>
 		      <tr>
 		      	<th>#</th>
+		      	<th> </th>
 		        <th>Player One</th>
 		        <th>Player Two</th>
 		        <th>Total Wins</th>
@@ -14,14 +15,14 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <% @teams.each do |team| %>
+		      <% @teams.each_with_index do |team, index| %>
 			      <tr>
-			      	<td><%= "#" %></td>
+			      	<td><%= index + 1 %></td>
+			      	<td><%= link_to "View Team", team_path(team), class: "" %></td>
 			        <td><%= team.player_one %></td>
 			        <td><%= team.player_two %></td>
 			        <td><%= team.wins %></td>
-			        <td><%= link_to "View Team", team_path(team), class: "" %>
-			         / <%= link_to "Delete Team", team_path(team), method: :delete %></td>
+			        <td><%= link_to "Delete Team", team_path(team), method: :delete %></td>
 			      </tr>
 		     	<% end %>
 		    </tbody>

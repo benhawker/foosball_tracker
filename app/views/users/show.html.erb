@@ -1,3 +1,8 @@
-<p><%= @user.first_name %> <%= @user.last_name %></p>
+<div class="container">
+	<p>Name:  <%= @user.first_name %> <%= @user.last_name %></p>
+	<p>Username: <%= @user.user_name %></p>
 
-<%= @user.user_name %>
+	<% @user.teams.each do |team| %>
+		<%= team.player_one %>
+	<% end %>
+</div>

@@ -11,6 +11,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.teams << Team.find(params[:match][:team_one])
     @match.teams << Team.find(params[:match][:team_two])
+    @match.winner?
     @match.assign_winner
     @match.team_wins
     if @match.save
@@ -42,6 +43,7 @@ class MatchesController < ApplicationController
 
   def destroy
     @match = Match.find(params[:id])
+    @match.decrease_team_win_count_when_match_deleted
     if @match.destroy
       flash[:notice] = 'Match deleted successfully'
       redirect_to '/matches'

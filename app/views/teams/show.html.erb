@@ -1,12 +1,13 @@
 <div class="container">
-  <h2>Playing History for <%= @team.player_one %>  &  <%= @team.player_two %> </h2>
+  <h2>Playing History for <%= @team.player_one %>  &  <%= @team.try(:player_two) %> </h2>
   <p>Matches Played: <%= @team.matches.count %></p> 
-  <p>Matches Won: <%= @team.wins %></p> 
-  <p>Matches Lost: <%=  @team.matches.count - @team.wins %></p> 
-  <p>Win Percentage: <%= ((@team.wins.to_f / @team.matches.count) * 100).round(2) %>%</p>            
+  <p>Matches Won: <%= @team.try(:wins) %></p> 
+  <p>Matches Lost: <%=  @team.matches.count - @team.wins.to_i %></p> 
+  <p>Win Percentage: <%= ((@team.wins.to_f / @team.matches.count) * 100).round(2) %>%</p>          
   <table class="table">
     <thead>
       <tr>
+        <th>#</th>
         <th>Matchup</th>
         <th>Date</th>
         <th>Score</th>
@@ -15,12 +16,14 @@
       </tr>
     </thead>
     <tbody>
-      <% @team.matches.each do |match| %>
+      <% @team.matches.each_with_index do |match, index| %>
         <tr>
+          <td><%= index + 1 %></td>
           <td><%= match.teams.first.player_one %> & <%= match.teams.first.player_two %> vs. <%= match.teams.last.player_one %> & <%= match.teams.last.player_two %></td>
           <td><%= match.created_at.strftime("%m/%d/%Y")  %></td>
           <td><%= match.team_one_score %> : <%= match.team_two_score %></td>
-          <td></td>
+          <td><% if match.winner? == match.team_one %> <%= 
+            "#{match.teams.first.player_one} & #{match.teams.first.player_two}" %> <% else %> <%= "#{match.teams.last.player_one} & #{match.teams.last.player_two}" %><% end %></td>
           <td><%= link_to "Edit Match", edit_match_path(match) %> / <%= link_to "Delete Match", match_path(match), method: :delete %></td>
         </tr>
       <% end %>

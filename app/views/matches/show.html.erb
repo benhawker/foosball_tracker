@@ -30,7 +30,8 @@
 					</td>
 			    <td><%= @match.created_at.strftime("%m/%d/%Y")  %></td>
 			    <td><%= @match.team_one_score %> : <%= @match.team_two_score %></td>
-			    <td> </td>
+			    <td><% if @match.winner? == @match.team_one %> <%= 
+				    "#{@match.teams.first.player_one} & #{@match.teams.first.player_two}" %> <% else %> <%= "#{@match.teams.last.player_one} & #{@match.teams.last.player_two}" %><% end %></td>
 			    <td><%= link_to "Edit Match", edit_match_path(@match) %> / <%= link_to "Delete Match", match_path(@match), method: :delete %></td>
 			  </tr>
     </tbody>

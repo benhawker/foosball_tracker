@@ -21,6 +21,7 @@ group :development, :test do
   gem 'shoulda'
   gem 'rspec-collection_matchers'
   gem 'factory_girl_rails'
+  gem 'seed_dump'
 end
 
 group :development do

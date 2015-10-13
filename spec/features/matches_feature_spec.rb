@@ -8,22 +8,6 @@ feature 'matches' do
     end
   end
 
-  context 'matches have been added' do
-	  # before :each do
-	  #   Match.create(team_one: 'Team 1', 
-	  #   						team_two: 'Team 2',
-	  #   						team_one_score: '10',
-	  #   						team_two_score: '0'
-	  #   						)
-	  # end
-
-	  scenario 'display the most recent matches at matches index' do
-	    visit '/matches'
-	    expect(page).to have_content('Here are the most recent matchups')
-	    expect(page).not_to have_content('No matches yet')
-	  end
-	end
-
 	context 'creating, viewing, editing & deleting matches' do
 
 		 	def user_one
@@ -83,11 +67,22 @@ feature 'matches' do
 			 	team_two
 		 	end
 
+		scenario 'display the most recent matches at matches index' do
+	    visit '/matches'
+	    click_link 'Add new match'
+	    select('one two', :from => 'match[team_one]')
+			select('three four', :from => 'match[team_two]')
+	    click_button 'Create Match!'
+	    expect(page).to have_content('Here are the most recent matchups')
+	    expect(page).not_to have_content('No matches yet')
+	  end
+
+
 	  scenario 'prompts user to fill out a form, then displays the new match up' do
 	    visit '/matches'
 	    click_link 'Add new match'
-	    select('one & two', :from => 'match[team_one]')
-			select('three & four', :from => 'match[team_two]')
+	    select('one two', :from => 'match[team_one]')
+			select('three four', :from => 'match[team_two]')
 	    click_button 'Create Match!'
 	    expect(page).to have_content 'Match created successfully'
 	    expect(current_path).to eq '/matches'

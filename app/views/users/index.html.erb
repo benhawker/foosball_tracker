@@ -18,9 +18,9 @@
 	    </thead>
 
 	   	<tbody>
-			  <% @users.each do |user| %> 
+			  <% @users.each_with_index do |user, index| %> 
 			  	<tr>
-		        <td><%= "#" %></td>
+		        <td><%= index + 1 %></td>
 		        <td><%= link_to user.user_name, user_path(user)%></td>
 		        <td><%= user.first_name %> <%= user.last_name %></td>
 		        <td><%= user.created_at.strftime("%m/%d/%Y") %></td>

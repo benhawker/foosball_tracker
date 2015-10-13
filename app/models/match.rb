@@ -16,4 +16,8 @@ class Match < ActiveRecord::Base
 		def team_wins
 			Team.increment_counter(:wins, winning_team.to_s)
 		end
+
+		def decrease_team_win_count_when_match_deleted
+			Team.decrement_counter(:wins, winning_team.to_s)
+		end
 end

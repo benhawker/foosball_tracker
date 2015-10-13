@@ -5,4 +5,8 @@ class Team < ActiveRecord::Base
 	validates :player_one, length: {minimum: 1}
 	validates :player_one, uniqueness: { scope: :player_two }
 	validates :player_two, uniqueness: { scope: :player_one }
+
+	def team_win_percentage
+		((Team.wins.to_f / Team.matches.count) * 100).round(2)
+	end
 end
