@@ -34,9 +34,9 @@ class TeamsController < ApplicationController
     end
   end
 
- 	def team_params
-    params.require(:team).permit(:player_one, :player_two, 
-    														:wins, :win_percentage)
-  end
+  private
 
+ 	def team_params
+    params.require(:team).permit(:player_one, :player_two)
+  end
 end

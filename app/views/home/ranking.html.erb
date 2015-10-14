@@ -1,9 +1,9 @@
 <div class="container">
 <div class="col-sm-8 col-centered">
-	<% if @teams.any? %>
  		<h2 class="text-center">Team Rankings</h2> 
  		<p class="text-center">Ranked by win % - must have minimum of 5 wins.</p> 
 	  <section class="space-20"></section>
+	 	<% if @teams.any? %>
 	  <table class="table">
 	    <thead>
 	      <tr>
@@ -20,8 +20,8 @@
 		      <tr>
 		      	<td><%= index + 1 %></td>
 		      	<td><%= link_to "View Team", team_path(team), class: "" %></td>
-		        <td><%= team.player_one %></td>
-		        <td><%= team.player_two %></td>
+		        <td><%= team.users.first.first_name %></td>
+		        <td><%= team.users.last.first_name %></td>
 		        <td><%= team.wins %></td>
 		        <td> <%= ((team.wins.to_f / team.matches.count) * 100).round(1) %>%</td>
 		      </tr>
@@ -29,7 +29,7 @@
 	    </tbody>
 	  </table>
 	<% else %>
-		<p>No teams yet.<p>
+		<p class="centered"><em>Sorry but there are no teams yet with 5 wins.</em><p>
 	<% end %>
 </div>
 </div>

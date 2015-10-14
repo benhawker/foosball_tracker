@@ -3,6 +3,6 @@ class HomeController < ApplicationController
 	end
 
 	def ranking
-		@teams = Team.order(wins: :desc)
+		@teams = Team.where("wins > 2").order(win_percentage: :desc)
 	end
 end

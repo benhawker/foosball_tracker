@@ -15,23 +15,22 @@
 	      <tr>
 	        <td>
 	        <%= link_to "Team #1", team_path(@match.teams.first) %>
-					<%= @match.teams.first.player_one %> & 
-					<% if @match.teams.first.player_two %> 
-						<%= @match.teams.first.player_two %> 
+					<%= @match.team_one_player_one %> & 
+					<% if @match.team_one_player_two %> 
+						<%= @match.team_one_player_two %> 
 					<% end %>
 
 					vs.
 					
 					<%= link_to "Team #2", team_path(@match.teams.last) %>
-					<%= @match.teams.last.player_one %> & 
-					<% if @match.teams.last.player_two %> 
-						<%= @match.teams.last.player_two %> 
+					<%= @match.team_two_player_one %> & 
+					<% if @match.team_two_player_two%> 
+						<%= @match.team_two_player_two %> 
 					<% end %>
 					</td>
 			    <td><%= @match.created_at.strftime("%m/%d/%Y")  %></td>
 			    <td><%= @match.team_one_score %> : <%= @match.team_two_score %></td>
-			    <td><% if @match.winner? == @match.team_one %> <%= 
-				    "#{@match.teams.first.player_one} & #{@match.teams.first.player_two}" %> <% else %> <%= "#{@match.teams.last.player_one} & #{@match.teams.last.player_two}" %><% end %></td>
+					<td><%= @match.match_winner %></td>
 			    <td><%= link_to "Edit Match", edit_match_path(@match) %> / <%= link_to "Delete Match", match_path(@match), method: :delete %></td>
 			  </tr>
     </tbody>
