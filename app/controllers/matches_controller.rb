@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
 	def index
-		@matches = Match.all.order(id: :desc).limit(50)
+		# @matches = Match.all.order(id: :desc).limit(50)
+		@matches = Match.all
 	end
 
 	def new

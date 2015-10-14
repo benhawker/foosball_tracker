@@ -77,7 +77,6 @@ feature 'matches' do
 	    expect(page).not_to have_content('No matches yet')
 	  end
 
-
 	  scenario 'prompts user to fill out a form, then displays the new match up' do
 	    visit '/matches'
 	    click_link 'Add new match'

@@ -8,7 +8,9 @@ class TeamsController < ApplicationController
 	end
 
 	def create
-    @team = Team.new(user_params)
+    @team = Team.new(team_params)
+    @team.users << User.find(params[:team][:player_one])
+    @team.users << User.find(params[:team][:player_two])
     if @team.save
     	flash[:notice] = 'Team created successfully'
     	redirect_to teams_path
@@ -32,7 +34,7 @@ class TeamsController < ApplicationController
     end
   end
 
- 	def user_params
+ 	def team_params
     params.require(:team).permit(:player_one, :player_two, 
     														:wins, :win_percentage)
   end

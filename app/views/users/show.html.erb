@@ -1,8 +1,33 @@
 <div class="container">
-	<p>Name:  <%= @user.first_name %> <%= @user.last_name %></p>
-	<p>Username: <%= @user.user_name %></p>
+	<div class="col-sm-8 col-centered">		
+		<% if @user.teams.any? %>
+			<h2 class="text-center">Individual performance for <%= @user.first_name %> <%= @user.last_name %></h2> 
+			<section class='space-20'></section>
+			<table class="table">
+		    <thead>
+		      <tr>
+		        <th>#</th>
+		        <th>Playing with(1)</th>
+		        <th>Playing with(2)</th>
+		        <th>Number of Wins</th>
+		        <th>Individual Ranking</th>
+		      </tr>
+		    </thead>
 
-	<% @user.teams.each do |team| %>
-		<%= team.player_one %>
-	<% end %>
+		   	<tbody>
+				  <% @user.teams.each_with_index do |team, index| %> 
+				  	<tr>
+			        <td><%= index + 1 %></td>
+			        <td><%= team.player_one %></td>
+			        <td><%= team.player_two %></td>
+			        <td><%= team.wins %></td>
+			       	<td>*</td>
+				    </tr>
+				  <% end %>
+			  </tbody>
+			</table>
+		<% else %>
+			This user has not yet played any matches.
+		<% end %>
+	</div>
 </div>

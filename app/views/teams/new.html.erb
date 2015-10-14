@@ -1,12 +1,14 @@
+
 <div class="col-sm-6 col-centered">
   <h2 class="text-center">Create your new team below</h2>
 	<%= form_for [@team], :html => {:multipart => true} do |f| %>
 		<%= f.label :player_one %>
-		<%= f.select :player_one, User.all.map(&:first_name), {:include_blank => "Select player One from the dropdown"}, class: "form-control" %>
+		<%= f.select :player_one, User.all.map(&:id), {:include_blank => "Select player One from the dropdown"}, class: "form-control" %>
 		<br>
 		<%= f.label :player_two %>
-		<%= f.select :player_two, User.all.map(&:first_name), {:include_blank => "Select player two or leave if playing solo!"}, class: "form-control" %>
+		<%= f.select :player_two, User.all.map(&:id), {:include_blank => "Select player two or leave if playing solo!"}, class: "form-control" %>
 		<br>
 	  <%= f.submit "Create Team!", class: "form-control btn btn-primary" %>
 	<% end %>
 </div>
+

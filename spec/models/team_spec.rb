@@ -18,5 +18,4 @@ RSpec.describe Team, type: :model do
     expect(team).to have(1).error_on(:player_two)
     expect(team).not_to be_valid
   end
-
 end

@@ -20,15 +20,15 @@
 		      <% @matches.each do |match| %>
 		        <td><%= link_to "View Match Stats", match_path(match) %> </td>
 			    	<td>
-			    	<%= match.teams.first.player_one %>
-			    	
+			    	<%= match.team_one %>
+
 			    	<% if match.teams.first.player_two %> 
 							<%= "& #{match.teams.first.player_two}" %> 
 						<% end %>
 
 						vs.
 
-			    	<%= match.teams.last.player_one %>
+			    	<%= match.team_two %>
 
 			    	<% if match.teams.last.player_two %> 
 							<%= "& #{match.teams.last.player_two}" %> 
