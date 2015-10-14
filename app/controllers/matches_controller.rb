@@ -16,9 +16,11 @@ class MatchesController < ApplicationController
     @match.assign_winner
     @match.team_wins
     if @match.save
-    	flash[:notice] = 'Match created successfully'
+    	flash[:notices] = ['Match created successfully']
     	redirect_to '/matches'
     else
+      p @match.errors.messages[:base]
+      flash[:alerts] = @match.errors.messages[:base]
     	render 'new'
     end
 	end
@@ -34,10 +36,10 @@ class MatchesController < ApplicationController
   def update
     @match = Match.find(params[:id])
     if @match.update(match_params)
-      flash[:notice] = 'Match updated successfully'
+      flash[:notices] = ['Match updated successfully']
       redirect_to '/matches'
     else
-      flash[:alert] = "Match could not be updated"
+      flash[:alerts] = ["The winner must have 10 goals"]
       render 'edit'
     end
   end
@@ -46,10 +48,10 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @match.decrease_team_win_count_when_match_deleted
     if @match.destroy
-      flash[:notice] = 'Match deleted successfully'
+      flash[:notices] = ['Match deleted successfully']
       redirect_to '/matches'
     else
-      flash[:alert] = 'Sorry something went wrong. Your match was not deleted.'
+      flash[:alerts] = ['Sorry something went wrong. Your match was not deleted.']
       redirect_to '/edit'
     end
   end

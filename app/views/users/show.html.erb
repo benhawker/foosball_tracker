@@ -18,8 +18,8 @@
 				  <% @user.teams.each_with_index do |team, index| %> 
 				  	<tr>
 			        <td><%= index + 1 %></td>
-			        <td><%= team.users.first.first_name %></td>
-			        <td><%= team.users.last.first_name %></td>
+			        <td><%= team.team_player_one %></td>
+			        <td><%= team.team_player_two %></td>
 			        <td><%= team.wins %></td>
 			       	<td>*</td>
 				    </tr>

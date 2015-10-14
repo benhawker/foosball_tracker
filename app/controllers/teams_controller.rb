@@ -10,9 +10,9 @@ class TeamsController < ApplicationController
 	def create
     @team = Team.new(team_params)
     @team.users << User.find(params[:team][:player_one])
-    @team.users << User.find(params[:team][:player_two])
+    @team.users << User.find(params[:team][:player_two]) unless (params[:team][:player_two]).blank?
     if @team.save
-    	flash[:notice] = 'Team created successfully'
+    	flash[:notices] = ['Team created successfully']
     	redirect_to teams_path
     else
     	render 'new'
@@ -26,10 +26,10 @@ class TeamsController < ApplicationController
   def destroy
     @team = Team.find(params[:id])
     if @team.destroy
-      flash[:notice] = 'Team deleted successfully'
+      flash[:notices] = ['Team deleted successfully']
       redirect_to '/teams'
     else
-      flash[:alert] = 'Sorry something went wrong. The team was not deleted.'
+      flash[:alerts] = ['Sorry something went wrong. The team was not deleted.']
       redirect_to '/teams'
     end
   end

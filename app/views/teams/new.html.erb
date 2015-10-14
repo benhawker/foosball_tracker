@@ -1,7 +1,7 @@
 
 <div class="col-sm-6 col-centered">
   <h2 class="text-center">Create your new team below</h2>
-	<%= form_for [@team], :html => {:multipart => true} do |f| %>
+	<%= form_for @team do |f| %>
 		<%= f.label :player_one %>
 		<%= f.select :player_one, User.all.map{|u| ["#{u.first_name} #{u.last_name}", u.id] }, { :prompt => "Select player One from the dropdown"}, class: "form-control" %>
 		<br>

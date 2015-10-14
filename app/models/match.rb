@@ -1,6 +1,9 @@
 class Match < ActiveRecord::Base
 	has_and_belongs_to_many :teams
 
+	validate :winner_must_have_ten
+	validate :both_teams_have_ten
+
 		attr_accessor :assign_winner, :team_wins
 
 		def winner?
@@ -22,7 +25,6 @@ class Match < ActiveRecord::Base
 		end
 
 		#View helpers
-
 		def team_one_player_one
 			self.teams.find(self.team_one).users.first.first_name
 		end
@@ -46,4 +48,17 @@ class Match < ActiveRecord::Base
 				return "#{self.teams.find(self.team_two).users.first.first_name} & #{self.teams.find(self.team_two).users.last.first_name}"
 			end
 		end
+
+		private
+			def winner_must_have_ten
+	      unless self.team_one_score == 10 || self.team_two_score == 10
+	        errors.add(:base, "There must be a winner with 10 goals! Finish your match please ;)")
+	      end
+	    end
+
+	    def both_teams_have_ten
+	    	if self.team_one_score == 10 && self.team_two_score == 10
+	    		errors.add(:base, "Both teams cannot be the winner!")
+	    	end
+	    end
 end

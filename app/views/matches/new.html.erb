@@ -2,11 +2,11 @@
   <h2 class="text-center">Create your new matchup below</h2>
 	<%= form_for [@match], :html => {:multipart => true} do |f| %>
 		<%= f.label :team_one %>
-		<%= f.select :team_one, Team.all.collect {|team| ["#{team.users.first.first_name}" + " " + "#{team.users.last.first_name}", team.id] }, class: "form-control" %>
+		<%= f.select :team_one, Team.all.collect {|team| ["#{team.team_player_one}" + " " + "#{team.team_player_two}", team.id] }, class: "form-control" %>
 		<%= f.select :team_one_score, (0..10), class: "form-control" %>
 		<br>
 		<%= f.label :team_two %>
-		<%= f.select :team_two, Team.all.collect {|team| ["#{team.users.first.first_name}" + " " + "#{team.users.last.first_name}", team.id] }, class: "form-control" %>
+		<%= f.select :team_two, Team.all.collect {|team| ["#{team.team_player_one}" + " " + "#{team.team_player_two}", team.id] }, class: "form-control" %>
 		<%= f.select :team_two_score, (0..10), class: "form-control" %>
 		<br>
 		<br>
