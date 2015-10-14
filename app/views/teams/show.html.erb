@@ -3,7 +3,7 @@
   <p>Matches Played: <%= @team.matches.count %></p> 
   <p>Matches Won: <%= @team.try(:wins) %></p> 
   <p>Matches Lost: <%=  @team.matches.count - @team.wins.to_i %></p> 
-  <p>Win Percentage: <%= ((@team.wins.to_f / @team.matches.count) * 100).round(2) %>%</p>          
+  <p>Win Percentage: <%= @team.team_win_percentage %>%</p>         
   <table class="table">
     <thead>
       <tr>
@@ -19,11 +19,22 @@
       <% @team.matches.each_with_index do |match, index| %>
         <tr>
           <td><%= index + 1 %></td>
-          <td><%= match.teams.first.users.first.first_name %> & <%= match.teams.first.users.last.first_name %> vs. <%= match.teams.last.users.first.first_name %> & <%= match.teams.last.users.last.first_name %></td>
+          <td>
+          <%= link_to "Team #1", team_path(match.teams.first) %>
+          <%= match.team_one_player_one %> & 
+          <% if match.team_one_player_two %> 
+            <%= match.team_one_player_two %> 
+          <% end %>
+          vs.
+          <%= link_to "Team #2", team_path(match.teams.last) %>
+          <%= match.team_two_player_one %> & 
+          <% if match.team_two_player_two%> 
+            <%= match.team_two_player_two %> 
+          <% end %>
+          </td>
           <td><%= match.created_at.strftime("%m/%d/%Y")  %></td>
           <td><%= match.team_one_score %> : <%= match.team_two_score %></td>
-          <td><% if match.winner? == match.team_one %> <%= 
-            "#{match.teams.first.users.first.first_name} & #{match.teams.first.users.last.first_name}" %> <% else %> <%= "#{match.teams.last.users.first.first_name} & #{match.teams.last.users.last.first_name}" %><% end %></td>
+          <td><%= match.match_winner %></td>
           <td><%= link_to "Edit Match", edit_match_path(match) %> / <%= link_to "Delete Match", match_path(match), method: :delete %></td>
         </tr>
       <% end %>

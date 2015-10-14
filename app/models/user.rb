@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	validates :user_name, length: {minimum: 3}, uniqueness: true
 
 	#View Helpers
-	def team_player_one
+	def user_one
 		self.users.first.first_name
 	end
 

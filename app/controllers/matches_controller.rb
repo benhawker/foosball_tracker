@@ -1,6 +1,5 @@
 class MatchesController < ApplicationController
 	def index
-		# @matches = Match.all.order(id: :desc).limit(50)
 		@matches = Match.all
 	end
 
@@ -19,7 +18,6 @@ class MatchesController < ApplicationController
     	flash[:notices] = ['Match created successfully']
     	redirect_to '/matches'
     else
-      p @match.errors.messages[:base]
       flash[:alerts] = @match.errors.messages[:base]
     	render 'new'
     end

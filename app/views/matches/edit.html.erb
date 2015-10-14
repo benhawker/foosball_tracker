@@ -1,13 +1,45 @@
 <div class="col-sm-6 col-centered">
   <h2 class="text-center">Edit this matchup below</h2>
 	<%= form_for [@match], :html => {:multipart => true} do |f| %>
-		<%= @match.teams.first.player_one %> & <%= @match.teams.first.player_two %>
-		<%= f.select :team_one_score, (0..10), class: "form-control" %>
-		<br>
-		<%= @match.teams.last.player_one %> & <%= @match.teams.last.player_two %>
-		<%= f.select :team_two_score, (0..10), class: "form-control" %>
-		<br>
-		<br>
-	  <%= f.submit "Edit Match!", class: "btn" %>
+	  <table class="table">
+	  	<thead>
+	      <tr>
+		      <th>Team</th>
+		      <th>Game One</th>
+		      <th>Game Two</th>
+		      <th>Game Three</th>
+	      </tr>
+    	</thead>
+    <tbody>
+    	<tr>
+		    <td>
+			    <%= @match.team_one_player_one %>
+					<% if @match.team_two_player_two%>
+						& <%= @match.team_two_player_two %>
+					<% end %>
+				</td>
+				<td>
+					<%= f.select :team_one_score, (0..10), class: "form-control" %>
+				</td>
+			</tr>
+			<br>
+			<tr>
+				<td>
+					<%= @match.team_two_player_one %> 
+					<% if @match.team_two_player_two%>
+						& <%= @match.team_two_player_two %>
+					<% end %>
+				</td>
+				<td>
+					<%= f.select :team_two_score, (0..10), class: "form-control" %>
+				</td>
+			</tr>
+	 	</tbody>
+	</table>
+	<br>
+	<br>
+	<div class="centered">
+	  <%= f.submit "Edit Match!", class: "btn width-200 text-center" %>
+	</div>
 	<% end %>
 </div>
