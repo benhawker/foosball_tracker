@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :users
   resources :teams
   resources :matches
+
+  get "*any", via: :all, to: "errors#not_found"
 end
