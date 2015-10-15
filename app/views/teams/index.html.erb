@@ -11,7 +11,7 @@
 		        <th>Player One</th>
 		        <th>Player Two</th>
 		        <th>Total Wins</th>
-		        <th>Options</th>
+		        <th>Team Win %</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -22,7 +22,7 @@
 			        <td><%= team.team_player_one %></td>
 			        <td><%= team.team_player_two %></td>
 			        <td><%= team.wins %></td>
-			        <td><%= link_to "Delete Team", team_path(team), method: :delete %></td>
+			        <td><%= team.team_win_percentage %>%</td>
 			      </tr>
 		     	<% end %>
 		    </tbody>

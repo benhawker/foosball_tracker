@@ -4,6 +4,9 @@ class Match < ActiveRecord::Base
 	validate :winner_must_have_ten
 	validate :both_teams_have_ten
 
+	validates :team_one, presence: true
+	validates :team_two, presence: true
+
 	attr_accessor :assign_winner, :team_wins, :calculate_game_total
 
 	def winner?

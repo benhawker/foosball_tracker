@@ -71,18 +71,18 @@ feature 'users' do
 		end
 	end
 
-	context 'deleting users' do
+	# context 'deleting users' do
 
-	  before { User.create(first_name: 'Ben', 
-				    						last_name: 'Hawker',
-				    						user_name: 'benhawker'
-				    						) }
+	#   before { User.create(first_name: 'Ben', 
+	# 			    						last_name: 'Hawker',
+	# 			    						user_name: 'benhawker'
+	# 			    						) }
 
-	  scenario 'removes a user when a user clicks a delete link' do
-	    visit '/users'
-	    click_link 'Delete'
-	    expect(page).not_to have_content 'Ben Hawker'
-	    expect(page).to have_content 'User deleted successfully'
-	  end
-	end
+	#   scenario 'removes a user when a user clicks a delete link' do
+	#     visit '/users'
+	#     click_link 'Delete'
+	#     expect(page).not_to have_content 'Ben Hawker'
+	#     expect(page).to have_content 'User deleted successfully'
+	#   end
+	# end
 end

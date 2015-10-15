@@ -75,13 +75,13 @@ feature 'teams' do
 			 	team_one
 		 	end
 
-	  scenario 'removes a team when a user clicks a delete link' do
-	    visit '/teams'
-	    click_link 'Delete'
-	    expect(page).not_to have_content 'Ben'
-	    expect(page).not_to have_content 'Bob'
-	    expect(page).to have_content 'Team deleted successfully'
-	  end
+	  # scenario 'removes a team when a user clicks a delete link' do
+	  #   visit '/teams'
+	  #   click_link 'Delete'
+	  #   expect(page).not_to have_content 'Ben'
+	  #   expect(page).not_to have_content 'Bob'
+	  #   expect(page).to have_content 'Team deleted successfully'
+	  # end
 	end
 
 end

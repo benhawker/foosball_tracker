@@ -14,7 +14,6 @@ class MatchesController < ApplicationController
     @match.winner?
     @match.assign_winner
     @match.team_wins
-    @match.calculate_game_total
     if @match.save
     	flash[:notices] = ['Match created successfully']
     	redirect_to '/matches'
@@ -61,13 +60,7 @@ class MatchesController < ApplicationController
                                   :best_of, 
                                   :team_one_score, 
                                   :team_two_score, 
-                                  :winning_team, 
-                                  :team_one_game_one_score, 
-                                  :team_one_game_two_score, 
-                                  :team_one_game_three_score,
-                                  :team_two_game_one_score,
-                                  :team_two_game_two_score,
-                                  :team_two_game_three_score)
+                                  :winning_team)
   end
 end
 

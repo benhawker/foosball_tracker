@@ -1,13 +1,33 @@
 class Team < ActiveRecord::Base
-	has_and_belongs_to_many :users
-	has_and_belongs_to_many :matches
+	has_and_belongs_to_many :users, -> { uniq }
+	has_and_belongs_to_many :matches, -> { uniq }
 
 	validates :player_one, presence: true
 	validates :player_one, uniqueness: { scope: :player_two }
 	validates :player_two, uniqueness: { scope: :player_one }
 
-	def team_win_percentage
-		((self.wins.to_f / self.matches.count) * 100).round(2)
+	before_save :set_team_wins
+		def set_team_wins
+			if self.wins != nil
+			  self.wins = 0 if self.wins < 0
+			  self.wins = 0 if self.wins < 0
+		 	end
+		end
+
+  def matches_played
+  	self.matches.count
+  end
+
+  def matches_lost
+  	matches_played - self.wins.to_i
+  end
+
+  def team_win_percentage
+		((self.wins.to_f / matches_played) * 100).round(2)
+	end
+
+	def self.sorted_by_percentage_correct
+  	Team.all.sort_by(&:team_win_percentage).reverse
 	end
 
 	#View helpers

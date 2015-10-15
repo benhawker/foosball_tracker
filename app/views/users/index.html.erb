@@ -24,7 +24,7 @@
 		        <td><%= link_to user.user_name, user_path(user)%></td>
 		        <td><%= user.first_name %> <%= user.last_name %></td>
 		        <td><%= user.created_at.strftime("%m/%d/%Y") %></td>
-		       	<td><%= link_to "Edit", edit_user_path(user) %> / <%= link_to "Delete", user_path(user), method: :delete %> </td>
+		       	<td><%= link_to "Edit", edit_user_path(user) %> </td>
 			    </tr>
 			  <% end %>
 		  </tbody>

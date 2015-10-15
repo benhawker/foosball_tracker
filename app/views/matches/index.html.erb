@@ -38,7 +38,7 @@
 				    <td><%= match.created_at.strftime("%m/%d/%Y") %></td>
 			    	<td><%= match.team_one_score%> : <%= match.team_two_score %></td>
 			    	<td><%= match.match_winner %></td>
-				    <td><%= link_to "Edit Match", edit_match_path(match) %> / <%= link_to "Delete Match", match_path(match), method: :delete %></td>
+				    <td><%= link_to "Edit Match Score", edit_match_path(match) %></td>
 				  </tr>
 				<% end %>
 	    </tbody>
