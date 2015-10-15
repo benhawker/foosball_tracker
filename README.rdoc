@@ -1,14 +1,15 @@
-Foosball Tracker
+# Foosball Tracker
 ===================
 
 A Rails Foosball Tracker to keep track of the games played, results and an overall leaderboard for a group of players.
 
+```
 Key functionality includes the ability to:
 - Create and manage users
 - Create games (using 2 - 4 team members) Manage games (winner and score)
 - Show the game history
 - Show the basic stats of an individual player
-
+```
 
 Sample User stories:
 -------
