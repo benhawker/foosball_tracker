@@ -10,6 +10,22 @@ Key functionality includes the ability to:
 - Show the basic stats of an individual player
 ```
 
+Setup:
+-------
+```
+git clone 
+bundle
+bin/rake db:create
+bin/rake db:migrate
+bin/rake db:seed
+bin/rails s
+
+#to run tests
+rspec
+#to auto-run tests
+guard
+```
+
 Sample User stories:
 -------
 ```
