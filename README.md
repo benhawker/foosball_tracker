@@ -53,10 +53,12 @@ Improvements & known defects:
   has_many :players
 ```
 
+
 - **Associations - duplication of info contained in join tables:**
 - Whilst I feel the HABTM relationship between Users & Teams and likewise between Teams & Matches is sufficient. I have however not utilised the join tables appropriately. The addition of player_one and player_two attributes in the Team table is an error, as is the addition of team_one and team_two attributes in the matches tables.
 
 - The user objects belonging to a team or the team objects belonging to a match are accessible via team.users and match.teams respectively. This has led to other issues within my code base and will be my primary change when working on this project again.
+
 
 
 - **Validations:**
@@ -65,8 +67,11 @@ Improvements & known defects:
 - Most crucially using the Active Record "uniq" query method I was unable to then provide a flash[:alert] to user providing feedback as to why they cannot create a certain team. 
 
 
+
 - **Partials:**
 - Use partials for areas such as the flash[:notices] and flash[:alerts] in application.html.erb. Other areas that are ripe for the use of partials include some of the forms shared between edit and new views.
+
+
 
 - **View Helpers:**
 - Helper modules for the view helper methods which are currently cluttering the Models.
@@ -75,11 +80,11 @@ Improvements & known defects:
 Extensions:
 -------
 
-- Add Best of 3 style matches with a Game model using the following associations:
+- Add **Best of 3 style matches** with a Game model using the following associations:
   -  Game belongs to Team
   -  Team has_many Games
 
-- Additional individual user rankings seperated from team performance. Given the above relationships linked correctly via join tables this information becomes easily accessible for manipulation.
+- Additional **individual user rankings seperated from team performance**. Given the above relationships linked correctly via join tables this information becomes easily accessible for manipulation.
 
 Links:
 -------
