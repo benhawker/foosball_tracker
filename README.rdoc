@@ -1,28 +1,64 @@
-== README
+Foosball Tracker
+===================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails Foosball Tracker to keep track of the games played, results and an overall leaderboard for a group of players.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Key functionality includes the ability to:
+- Create and manage users
+- Create games (using 2 - 4 team members) Manage games (winner and score)
+- Show the game history
+- Show the basic stats of an individual player
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Sample User stories:
+-------
+
+As a foosball player
+I want to record my games against my friends & colleagues
+So that we have a permanent record of results
+
+As a foosball player
+I want to be able to create teams
+So that I can keep track of who I played with
+
+As a foosball player
+I want to be able to see which partner I perform best with
+So that I can play with them more!
+
+As a foosball player
+I want to view a ranking leaderboard
+So that I see how much extra practice I need to reach the top.
+
+
+Technologies Used:
+-------
+
+- [Ruby On Rails](http://rubyonrails.org/)
+- Tested using [RSpec](http://rspec.info/) (provides a behaviour driven development framework for the language, allowing to write application scenarios and test them.)
+- Capybara for Feature Testing
+- [Shoulda](https://github.com/thoughtbot/shoulda) (Ruby gem for testing)
+
+
+Next Steps/Improvements & known defects:
+-------
+
+- A number 
+
+- Validations: 
+
+- Functionality and testing to prevent 
+
+- Use partials for areas such as the flash[:notices] and flash[:alerts] in application.html.erb. Other areas that are ripe for the use of partials include some of the forms shared between edit and new views.
+
+- Helper modules for the view helper methods
+
+Links:
+-------
+
+View site on Heroku (to follow)
+
+
+Screenshots:
+-------
+
+To follow...
