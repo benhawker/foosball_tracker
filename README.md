@@ -79,6 +79,11 @@ Improvements & known defects:
 
 
 
+- **Single Responsibility Principle & appropriate separation of concerns:**
+- There are some methods in my Match class that are acting upon the Team class. This violates the SRP. This is another area where I seek to make improvements in a future version from scratch. Having said that, I feel that the split of attributes is appropriate (i.e. Match class holds the score of each team).
+
+
+
 - **Validations:**
 - I have a number of validations preventing the duplication of teams (i.e. a team cannot be created again if already created) although some of these are not fully tested. This is a key part of the application that needs to be improved.
 
@@ -109,6 +114,8 @@ Extensions:
   -  Team has_many Games
 
 - Additional **individual user rankings seperated from team performance**. Given the above relationships linked correctly via join tables this information becomes easily accessible for manipulation.
+
+- I have used Bootstrap for this project as it very quickly allows a responsive layout with minimal hassle, particularly with the use of Bootstrap-sass gem. The UI is adequate for the nature of this project (where the focus was on the functionality of the back end), but in a future version I would seek to add a new interface using a lightweight CSS framework such as inuit.css.
 
 Links:
 -------
