@@ -13,7 +13,7 @@ Key functionality includes the ability to:
 Setup:
 -------
 ```
-git clone 
+git clone [url of repo]
 bundle
 bin/rake db:create
 bin/rake db:migrate
