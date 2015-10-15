@@ -110,5 +110,8 @@ View site on Heroku (to follow)
 
 Screenshots:
 -------
+Sample - Laptop Resolution
+![web](git_imgs/web.png)
 
-To follow...
+Sample - Mobile View
+![mobile](git_imgs/mobile.png)
