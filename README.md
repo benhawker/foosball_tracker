@@ -2,6 +2,8 @@ Foosball Tracker
 ===================
 A Foosball Tracker to keep track of the games played, results and an overall leaderboard for a group of players. Built with Rails.
 
+View the app at: https://sheltered-dusk-5820.herokuapp.com/
+
 ```
 Key functionality includes the ability to:
 - Create and manage users
@@ -92,6 +94,12 @@ Improvements & known defects:
 - **View Helpers:**
 - Helper modules for the view helper methods which are currently cluttering the Models.
 
+Other points of note:
+-------
+
+- **Removal of Delete options:**
+- After initially adding the option to delete user, teams and matches I have removed this functionality as given the ranking and nature of the app (having a permanent record of all teams and matches) this is not applicable.
+
 
 Extensions:
 -------
@@ -105,7 +113,7 @@ Extensions:
 Links:
 -------
 
-View site on Heroku (to follow)
+View the app at: https://sheltered-dusk-5820.herokuapp.com/
 
 
 Screenshots:
