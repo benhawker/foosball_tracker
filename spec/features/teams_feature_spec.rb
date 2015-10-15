@@ -45,7 +45,35 @@ feature 'teams' do
 	end
 
 	context 'deleting teams' do
-	  before { Team.create(player_one: 'Ben', player_two: 'Bob') }
+		def user_one
+				visit '/users'
+		    click_link 'Add a user'
+		    fill_in 'user[first_name]', with: 'one'
+		   	fill_in 'user[user_name]', with: 'one'
+		    click_button 'Create user'
+		 	end
+
+		 	def user_two
+				visit '/users'
+		    click_link 'Add a user'
+		    fill_in 'user[first_name]', with: 'two'
+		   	fill_in 'user[user_name]', with: 'two'
+		    click_button 'Create user'
+		 	end
+
+		 	def team_one
+			 	visit '/teams'
+				click_link 'Add new team'
+				select('one', :from => 'team[player_one]')
+				select('two', :from => 'team[player_two]')
+				click_button "Create Team!"
+			end
+
+		 	before do
+			 	user_one
+			 	user_two
+			 	team_one
+		 	end
 
 	  scenario 'removes a team when a user clicks a delete link' do
 	    visit '/teams'

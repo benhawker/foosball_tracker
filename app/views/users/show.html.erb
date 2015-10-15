@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="col-sm-8 col-centered">		
-		<% if @user.teams.any? %>
-			<h2 class="text-center">Individual performance for <%= @user.first_name %> <%= @user.last_name %></h2> 
+			<h2 class="text-center">Individual performance for <%= @user.first_name %> <%= @user.last_name %></h2>
+			<% if @user.teams.any? %> 
 			<section class='space-20'></section>
 			<table class="table">
 		    <thead>
@@ -27,7 +27,7 @@
 			  </tbody>
 			</table>
 		<% else %>
-			This user has not yet played any matches.
+			<p class="text-center">This user has not yet played any matches.</p>
 		<% end %>
 	</div>
 </div>
