@@ -66,7 +66,7 @@ Improvements & known defects:
 
 
 - **Partials:**
-Use partials for areas such as the flash[:notices] and flash[:alerts] in application.html.erb. Other areas that are ripe for the use of partials include some of the forms shared between edit and new views.
+- Use partials for areas such as the flash[:notices] and flash[:alerts] in application.html.erb. Other areas that are ripe for the use of partials include some of the forms shared between edit and new views.
 
 - **View Helpers:**
 - Helper modules for the view helper methods which are currently cluttering the Models.
