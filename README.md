@@ -2,6 +2,8 @@ Foosball Tracker
 ===================
 A Foosball Tracker to keep track of the games played, results and an overall leaderboard for a group of players. Built with Rails.
 
+View the app at: https://sheltered-dusk-5820.herokuapp.com/
+
 ```
 Key functionality includes the ability to:
 - Create and manage users
@@ -77,6 +79,11 @@ Improvements & known defects:
 
 
 
+- **Single Responsibility Principle & appropriate separation of concerns:**
+- There are some methods in my Match class that are acting upon the Team class. This violates the SRP. This is another area where I seek to make improvements in a future version from scratch. In addition the split of attributes is not appropriate (i.e. Match holds the score of each team). Match should hold the winning team but it can be argued that a teams score should be an attribute of the Team class.
+
+
+
 - **Validations:**
 - I have a number of validations preventing the duplication of teams (i.e. a team cannot be created again if already created) although some of these are not fully tested. This is a key part of the application that needs to be improved.
 
@@ -92,6 +99,12 @@ Improvements & known defects:
 - **View Helpers:**
 - Helper modules for the view helper methods which are currently cluttering the Models.
 
+Other points of note:
+-------
+
+- **Removal of Delete options:**
+- After initially adding the option to delete user, teams and matches I have removed this functionality as given the ranking and nature of the app (having a permanent record of all teams and matches) this is not applicable.
+
 
 Extensions:
 -------
@@ -102,10 +115,12 @@ Extensions:
 
 - Additional **individual user rankings seperated from team performance**. Given the above relationships linked correctly via join tables this information becomes easily accessible for manipulation.
 
+- I have used Bootstrap for this project as it very quickly allows a responsive layout with minimal hassle, particularly with the use of Bootstrap-sass gem. The UI is adequate for the nature of this project (where the focus was on the functionality of the back end), but in a future version I would seek to add a new interface using a lightweight CSS framework such as inuit.css.
+
 Links:
 -------
 
-View site on Heroku (to follow)
+View the app at: https://sheltered-dusk-5820.herokuapp.com/
 
 
 Screenshots:
