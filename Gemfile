@@ -17,6 +17,9 @@ group :production, :development do
 end
 
 group :development, :test do
+  gem 'bootstrap-sass', '~> 3.3.5'
+  gem 'jquery-rails'
+  gem 'turbolinks'
   gem 'byebug'
   gem 'guard-rspec', require: false
   gem 'rspec-rails'

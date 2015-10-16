@@ -1,31 +1,31 @@
 <div class="container">
-	<div class="col-sm-8 col-centered">		
-			<h2 class="text-center">Individual performance for <%= @user.first_name %> <%= @user.last_name %></h2>
-			<% if @user.teams.any? %> 
-			<section class='space-20'></section>
-			<table class="table">
-		    <thead>
-		      <tr>
-		        <th>#</th>
-		        <th>Playing with(1)</th>
-		        <th>Playing with(2)</th>
-		        <th># of wins with partner</th>
-		      </tr>
-		    </thead>
+  <div class="col-sm-8 col-centered">   
+      <h2 class="text-center">Individual performance for <%= @user.first_name %> <%= @user.last_name %></h2>
+      <% if @user.teams.any? %> 
+      <section class='space-20'></section>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Playing with(1)</th>
+            <th>Playing with(2)</th>
+            <th># of wins with partner</th>
+          </tr>
+        </thead>
 
-		   	<tbody>
-				  <% @user.teams.each_with_index do |team, index| %> 
-				  	<tr>
-			        <td><%= index + 1 %></td>
-			        <td><%= team.team_player_one %></td>
-			        <td><%= team.team_player_two %></td>
-			        <td><%= team.wins %></td>
-				    </tr>
-				  <% end %>
-			  </tbody>
-			</table>
-		<% else %>
-			<p class="text-center">This user has not yet played any matches.</p>
-		<% end %>
-	</div>
+        <tbody>
+          <% @user.teams.each_with_index do |team, index| %> 
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= team.team_player_one %></td>
+              <td><%= team.team_player_two %></td>
+              <td><%= team.wins %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="text-center">This user has not yet played any matches.</p>
+    <% end %>
+  </div>
 </div>

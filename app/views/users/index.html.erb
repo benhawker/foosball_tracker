@@ -1,35 +1,35 @@
 <div class="container">
-	<%= link_to "Add a user", new_user_path, class: "btn btn-primary pull-right" %>
+  <%= link_to "Add a user", new_user_path, class: "btn btn-primary pull-right" %>
 
-	<section class='space-20'></section>
-	
-	<% if @users.any? %>
-		<h2 class="text-center">Here are all the registered players</h2> 
+  <section class='space-20'></section>
+  
+  <% if @users.any? %>
+    <h2 class="text-center">Here are all the registered players</h2> 
 
-		<table class="table">
-	    <thead>
-	      <tr>
-	        <th>#</th>
-	        <th>Username</th>
-	        <th>Full Name</th>
-	        <th>Date Joined</th>
-	        <th>Options</th>
-	      </tr>
-	    </thead>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Full Name</th>
+          <th>Date Joined</th>
+          <th>Options</th>
+        </tr>
+      </thead>
 
-	   	<tbody>
-			  <% @users.each_with_index do |user, index| %> 
-			  	<tr>
-		        <td><%= index + 1 %></td>
-		        <td><%= link_to user.user_name, user_path(user)%></td>
-		        <td><%= user.first_name %> <%= user.last_name %></td>
-		        <td><%= user.created_at.strftime("%m/%d/%Y") %></td>
-		       	<td><%= link_to "Edit", edit_user_path(user) %> </td>
-			    </tr>
-			  <% end %>
-		  </tbody>
-		</table>
-	<% else %>
-		No users yet
-	<% end %>
+      <tbody>
+        <% @users.each_with_index do |user, index| %> 
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= link_to user.user_name, user_path(user)%></td>
+            <td><%= user.first_name %> <%= user.last_name %></td>
+            <td><%= user.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= link_to "Edit", edit_user_path(user) %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    No users yet
+  <% end %>
 </div>

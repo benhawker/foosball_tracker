@@ -1,13 +1,13 @@
 class MatchesController < ApplicationController
-	def index
-		@matches = Match.all
-	end
+  def index
+    @matches = Match.all
+  end
 
-	def new
-		@match = Match.new
-	end
+  def new
+    @match = Match.new
+  end
 
-	def create
+  def create
     @match = Match.new(match_params)
     @match.teams << Team.find(params[:match][:team_one])
     @match.teams << Team.find(params[:match][:team_two])
@@ -15,17 +15,17 @@ class MatchesController < ApplicationController
     @match.assign_winner
     @match.team_wins
     if @match.save
-    	flash[:notices] = ['Match created successfully']
-    	redirect_to '/matches'
+      flash[:notices] = ['Match created successfully']
+      redirect_to '/matches'
     else
       flash[:alerts] = @match.errors.messages[:base]
-    	render 'new'
+      render 'new'
     end
-	end
+  end
 
-	def show
+  def show
     @match = Match.find(params[:id])
-	end
+  end
 
   def edit
     @match = Match.find(params[:id])

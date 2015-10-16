@@ -1,27 +1,27 @@
 class TeamsController < ApplicationController
-	def index
-		@teams = Team.all
-	end
+  def index
+    @teams = Team.all
+  end
 
-	def new
-	  @team = Team.new
-	end
+  def new
+    @team = Team.new
+  end
 
-	def create
+  def create
     @team = Team.new(team_params)
     @team.users << User.find(params[:team][:player_one])
     @team.users << User.find(params[:team][:player_two]) unless (params[:team][:player_two]).blank?
     if @team.save
-    	flash[:notices] = ['Team created successfully']
-    	redirect_to teams_path
+      flash[:notices] = ['Team created successfully']
+      redirect_to teams_path
     else
-    	render 'new'
+      render 'new'
     end
   end
 
   def show
-  	@team = Team.find(params[:id])
- 	end
+    @team = Team.find(params[:id])
+  end
 
   def destroy
     @team = Team.find(params[:id])
@@ -36,7 +36,7 @@ class TeamsController < ApplicationController
 
   private
 
- 	def team_params
+  def team_params
     params.require(:team).permit(:player_one, :player_two)
   end
 end

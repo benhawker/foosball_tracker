@@ -1,50 +1,50 @@
 <div class="container">
-	<%= link_to "Add new match", new_match_path, class: "btn btn-primary pull-right" %>
-	<section class='space-20'></section>
-	<% if @matches.any? %>
-	 	<table class="table">
-  		<h2 class="text-center">Here are the most recent matchups</h2>
-	    <thead>
-	      <tr>
-	      	<th></th>
-	        <th>Matchup</th>
-	        <th>Date</th>
-	        <th>Score</th>
-	        <th>Winner</th>
-	        <th>Options</th>
-	      </tr>
-	    </thead>
+  <%= link_to "Add new match", new_match_path, class: "btn btn-primary pull-right" %>
+  <section class='space-20'></section>
+  <% if @matches.any? %>
+    <table class="table">
+      <h2 class="text-center">Here are the most recent matchups</h2>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Matchup</th>
+          <th>Date</th>
+          <th>Score</th>
+          <th>Winner</th>
+          <th>Options</th>
+        </tr>
+      </thead>
 
-	    <tbody>
-		      <tr>
-		      <% @matches.each do |match| %>
-		        <td><%= link_to "View Match Stats", match_path(match) %> </td>
-			    	<td>
-			    	<%= match.team_one_player_one %>
+      <tbody>
+          <tr>
+          <% @matches.each do |match| %>
+            <td><%= link_to "View Match Stats", match_path(match) %> </td>
+            <td>
+            <%= match.team_one_player_one %>
 
-			    	<% if match.team_one_player_two  %> 
-							<%= "& #{match.team_one_player_two}" %> 
-						<% end %>
+            <% if match.team_one_player_two  %> 
+              <%= "& #{match.team_one_player_two}" %> 
+            <% end %>
 
-						vs.
+            vs.
 
-			    	<%= match.team_two_player_one  %>
+            <%= match.team_two_player_one  %>
 
-			    	<% if match.team_two_player_two  %> 
-							<%= "& #{match.team_two_player_two}" %> 
-						<% end %>
+            <% if match.team_two_player_two  %> 
+              <%= "& #{match.team_two_player_two}" %> 
+            <% end %>
 
-			    	</td>
-				    <td><%= match.created_at.strftime("%m/%d/%Y") %></td>
-			    	<td><%= match.team_one_score%> : <%= match.team_two_score %></td>
-			    	<td><%= match.match_winner %></td>
-				    <td><%= link_to "Edit Match Score", edit_match_path(match) %></td>
-				  </tr>
-				<% end %>
-	    </tbody>
-	  </table>
-	<% else %>
-		<p>No matches yet</p>
-	<% end %>
+            </td>
+            <td><%= match.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= match.team_one_score%> : <%= match.team_two_score %></td>
+            <td><%= match.match_winner %></td>
+            <td><%= link_to "Edit Match Score", edit_match_path(match) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No matches yet</p>
+  <% end %>
 </div>
 
