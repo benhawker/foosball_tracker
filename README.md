@@ -80,7 +80,7 @@ Improvements & known defects:
 
 
 - **Single Responsibility Principle & appropriate separation of concerns:**
-- There are some methods in my Match class that are acting upon the Team class. This violates the SRP. This is another area where I seek to make improvements in a future version from scratch. Having said that, I feel that the split of attributes is appropriate (i.e. Match class holds the score of each team).
+- There are some methods in my Match class that are acting upon the Team class. This violates the SRP. This is another area where I seek to make improvements in a future version from scratch. In addition the split of attributes is not appropriate (i.e. Match holds the score of each team). Match should hold the winning team but it can be argued that a teams score should be an attribute of the Team class.
 
 
 
