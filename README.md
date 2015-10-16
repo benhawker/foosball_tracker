@@ -19,7 +19,6 @@ git clone [url of repo]
 bundle
 bin/rake db:create
 bin/rake db:migrate
-bin/rake db:seed
 bin/rails s
 
 #to run tests
